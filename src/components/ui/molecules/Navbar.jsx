@@ -51,7 +51,7 @@ export const Navbar = ({ logo, menu }) => {
           menu.menuItems.nodes.map((e,i) => (
             <Col key={i} bk={{ alignItems:'center' }}>
               <Typography capitalize variant='base' fw='strong' bk={{ width:'max-content', margin:'0px 10px' }} css={css`&:hover{color:${theme.palette.primary.main}; transition:color 0.4s ease}`}>
-                <Link to={e.url} >
+                <Link to={e.slug} >
                   {e.label}
                 </Link>
               </Typography>
@@ -84,7 +84,7 @@ export const Navbar = ({ logo, menu }) => {
       
         <Col key={e.slug}  bk={{ alignItems:'center',justifyContent:'center', height:'auto' }}>
           <Typography capitalize variant='h3' fw='strong' bk={{ width:'max-content', margin:'0px 10px' }} css={css`&:hover{color:${theme.palette.primary.main}}`} >
-            <Link to={e.url} onClick={closeMenu} >
+            <Link to={e.slug} onClick={closeMenu} >
               {e.label}
             </Link>
             <Spacer y={5}/>
