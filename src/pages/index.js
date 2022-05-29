@@ -94,9 +94,10 @@ const IndexPage = ({...props }) =>{
       </Row>
       <Spacer y={24}/>
       
-      <Modal state={stateModal} setState={setStateModal}>
-      <iframe width="560" height="650" src="https://www.youtube.com/embed/I7IMFoVsBSw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <Modal state={stateModal} setState={setStateModal}>     
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/07l8DGh0ZpI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </Modal>
+
     </LayoutScreen>      
    
   )

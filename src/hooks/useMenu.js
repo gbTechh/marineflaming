@@ -12,7 +12,7 @@ const useMenu = () => {
           menuItems{
             nodes{
               label
-              url
+              path
             }
           }
         }
