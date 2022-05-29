@@ -44,7 +44,7 @@ module.exports = {
     {
       resolve: "gatsby-source-wordpress",
       options: {
-        url: "http://localhost/marineflaming/graphql",
+        url: "https://uatluhoy.lucusvirtual.es/?graphql=true",
       },
     },
     { 
@@ -52,7 +52,7 @@ module.exports = {
       options: {
         typeName:'WordPress',
         fieldName:'wordpress',
-        url: "http://localhost/marineflaming/graphql",
+        url: "https://uatluhoy.lucusvirtual.es/?graphql=true",
         refetchInterval:180
       },
     },
@@ -61,7 +61,7 @@ module.exports = {
       options: {
         // This URL should be the same as you use for your
         // gatsby-source-wordpress options.
-        url: "http://localhost/marineflaming/graphql",
+        url: "https://uatluhoy.lucusvirtual.es/?graphql=true",
       },
       schema: {
         requestConcurrency: 5, // currently set to 5
