@@ -29,10 +29,7 @@ const IndexPage = ({...props }) =>{
       <Header />
       <Spacer y={24}/>
 
-      <SectionCard badge='Productos' title='Los mejores productos' data={products} type='fabricacion'/>
-      <Spacer y={5}/>
-      <Link to='/productos' css={css`margin: 0 auto;`}><Button css={css`margin:0 auto`} variant='solid' enableElevation color='primary'>Ver Productos</Button></Link>
-      <Spacer y={24}/>
+     
       <Row as='section' flex bk={{ background:'#f2f6f7',md:{flexWrap:'nowrap'} }} justify='center' align={'center'} gap={2} wrap='wrap'>     
         <Container pd={10} bk={{ display:'flex',justifyContent:'flex-end',alignItems:'center',maxWidth:'800px',md:{width:'50%'} }} >          
           <Row wrap='wrap' bk={{width:'100%', md:{width:'80%'} }} >
@@ -73,7 +70,13 @@ const IndexPage = ({...props }) =>{
      
       </Row>
       <Spacer y={24}/>
+      <SectionCard badge='Productos' title='Los mejores productos' data={products} type='fabricacion'/>
+    
+    
       <SectionCard badge='Servicios' title='Brindamos servicios de Calidad' data={products} type='servicio'/>
+      <Spacer y={5}/>
+      <Link to='/productos' css={css`margin: 0 auto;`}><Button css={css`margin:0 auto`} variant='solid' enableElevation color='primary'>Ver Productos</Button></Link>
+      <Spacer y={24}/>
      
       <Row as='section' flex bk={{ background:'#f2f6f7',md:{flexWrap:'nowrap'} }} justify='center' align={'center'} gap={2} wrap='wrap'>     
         <Container pd={10} bk={{ display:'flex',justifyContent:'flex-end',alignItems:'center',maxWidth:'800px',md:{width:'50%'} }} >          
