@@ -27,7 +27,6 @@ const IndexPage = ({...props }) =>{
   return(
     <LayoutScreen title='MarineFlaming | Home' descripcion={'Encuentra todos nuestros productos como jaulas para cultivo de peces en lagos, lagunas y ríos'}>
       <Header />
-      <Spacer y={24}/>
 
      
       <Row as='section' flex bk={{ background:'#f2f6f7',md:{flexWrap:'nowrap'} }} justify='center' align={'center'} gap={2} wrap='wrap'>     
