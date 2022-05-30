@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix:'/marineflaming',
+
   siteMetadata: {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
@@ -44,7 +44,7 @@ module.exports = {
     {
       resolve: "gatsby-source-wordpress",
       options: {
-        url: "https://uatluhoy.lucusvirtual.es/?graphql=true",
+        url: "http://localhost/marineflaming/graphql",
       },
     },
     { 
@@ -52,7 +52,7 @@ module.exports = {
       options: {
         typeName:'WordPress',
         fieldName:'wordpress',
-        url: "https://uatluhoy.lucusvirtual.es/?graphql=true",
+        url: "http://localhost/marineflaming/graphql",
         refetchInterval:180
       },
     },
@@ -61,7 +61,7 @@ module.exports = {
       options: {
         // This URL should be the same as you use for your
         // gatsby-source-wordpress options.
-        url: "https://uatluhoy.lucusvirtual.es/?graphql=true",
+        url: "http://localhost/marineflaming/graphql",
       },
       schema: {
         requestConcurrency: 5, // currently set to 5

@@ -25,7 +25,7 @@ export const Navbar = ({ logo, menu }) => {
 
   const theme = useTheme();
  
-
+  console.log({menu})
   return (
     <>
     <Container fluid>

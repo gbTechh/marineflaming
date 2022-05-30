@@ -1,40 +1,35 @@
-import { graphql, useStaticQuery } from 'gatsby';
+
+import { Link } from 'gatsby';
 import React from 'react'
-import { Col, Container, Div, Row, Spacer, Typography } from '../../../../uixlibrary/components/exports/components'
+import {  Container, Div } from '../../../../uixlibrary/components/exports/components'
+import useContact from '../../../hooks/useContact';
 import useSlider from '../../../hooks/useSlider'
-import GravityForm from '../../gravityForms/GravityForm';
+import Whatsapp from '../atoms/icons/Whatsapp';
+
 import SliderHead from './Slider';
 
 const Header = ({ children}) => {
 
   const sliderData = useSlider();
   
-  const data = useStaticQuery(graphql`
-    {
-      wpGfForm(databaseId: {eq: 1}) {
-        ...GravityFormContactFields
-      }
-    }
+  const {node:{redesSocialesCf:{whtasapp}}} = useContact();
+
   
-  `)
+
+  const whatsappLink = () => {
+    return `https://wa.me/${whtasapp.numero}?text=${whtasapp.mensaje.replace(' ', '%20')}`
+  }
 
   return (
     <Container bk={{ padding:0 }}>
-      <Div bk={{ display:'grid', gridTemplateRows:'600px auto', gridTemplateColumns:'200px repeat(5,1fr)', padding:'0', border:'0', md:{gridTemplateRows:'calc(100vh - 100px)'} }}>
-        <SliderHead sliderData={sliderData}> </SliderHead>
-        <Div bk={{ border:'0',width:'100%', height:'100%', gridRow:'2/3' ,gridColumn:'1/7', background:'rgba(255,255,255,0.8)', xmd:{gridRow:'1/3', gridColumn:'1/3', display:'flex', alignItems:'center', justifyContent:'center'}}}>
-          <Row wrap='wrap' bk={{ flexDirection:'column', width:'100%' }} align='center'>
-            <Spacer y={5}/>
-            <Col span={12}>
-              <Typography uppercase variant='h2' fw='title' component='h2' align='center' bk={{ width:'100%' }}>Somos tu mejor <Typography color='primary' uppercase variant='h2' fw='title' component='h2' align='center' bk={{ width:'100%' }}>opcion</Typography></Typography>
-            </Col>
-            <Spacer y={5}/>
-            <Col span={12} bk={{ background:'#f2f6f7', padding:'16px' }}>
-              <GravityForm form={data.wpGfForm}/>
-            </Col>
-            <Spacer y={24}/>
-          </Row>
-        </Div>
+      <Div bk={{ display:'grid', gridTemplateRows:'600px', gridTemplateColumns:'200px repeat(5,1fr)', padding:'0', border:'0', md:{gridTemplateRows:'calc(100vh - 100px)'} }}>
+        <SliderHead linkWsp={whatsappLink()}  sliderData={sliderData}> </SliderHead>
+
+      </Div>
+      <Div bk={{ zIndex:'10',display:'block', position:'fixed', bottom:'40px', right:'25px', width:'55px', height:'55px', borderRadius:'50%', background:' linear-gradient(45deg, rgba(16,184,40,1) 0%, rgba(138,255,146,1) 100%)', border:'0', padding:'0', display:'grid', placeContent:'center' , paddingBottom:'1.2px', paddingLeft:'1px'}}>
+        <Link to={whatsappLink()}>
+          <Whatsapp size={35} fill={'#fff'}/>
+        </Link>
       </Div>
     </Container>
   )

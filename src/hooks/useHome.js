@@ -5,33 +5,35 @@ const useHome = () => {
   const homePage = useStaticQuery(graphql`
   {
     wpPage(slug: {eq: "inicio"}) {
-      home{
-        nosotros{
-          descripcion
-          imagen{
-            sourceUrl
-          }
-          titulo
-          titulo2
-          descripcion2
-        }
-        historia{
-          descripcion
-          imagen{
-            sourceUrl
-          }
-          titulo
-        }
-        productos{
-          descripcion
-          imagen{
-            sourceUrl
-          }
-          titulo
-        }
-      }
-    }
-  }
+         home{
+           nosotros{
+             descripcion
+             imagen{
+               sourceUrl
+             }
+             titulo  
+           }
+           historia{
+             descripcion
+             imagen{
+               sourceUrl
+             }
+             titulo
+           }
+           experiencia{
+             descripcion
+             imagen{
+               sourceUrl
+             }
+             titulo
+           }
+           video
+           corfoLogo{
+             sourceUrl
+           }
+         }
+       }
+   }
    `
   );    
 

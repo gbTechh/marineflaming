@@ -203,7 +203,13 @@ function GlobalStyles() {
             }
             .my-masonry-grid_column{
               margin-right:24px;
-            }            
+            }       
+            .slick-list, .slick-track{
+              height:100%;
+            }   
+            .slick-track  div {
+              height:100%;
+            }  
           `}
         />
         </React.Fragment>

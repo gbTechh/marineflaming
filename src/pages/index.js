@@ -80,22 +80,31 @@ const IndexPage = ({...props }) =>{
           <Row  bk={{width:'100%', md:{width:'80%'} }} wrap='wrap' >
             <Typography  color='primary' fw='title' variant='base' bk={{ width:'100%' }}>Experiencia</Typography>
             <Spacer y={5} />
-            <Typography capitalize variant='h2' fw='title' component='h3' align='left' bk={{ width:'100%' }}>{home.productos.titulo}</Typography>
+            <Typography capitalize variant='h2' fw='title' component='h3' align='left' bk={{ width:'100%' }}>{home.experiencia.titulo}</Typography>
             <Spacer y={5} />
             <Typography variant='base' component='p' align='left' fw='tiny'  bk={{paddingRight:'0px', width:'100%' }}>{home.nosotros.descripcion}</Typography>
             <Spacer y={5} />  
           </Row>
         </Container>
         <Row bk={{ background:'#fff',display:'none', width:'50%',minHeight:'550px', md:{display:'flex'} }}>
-          <img css={css`height:100%; min-height:550px;filter: brightness(86%) contrast(144%) hue-rotate(152deg) saturate(117%) sepia(20%) invert(9%) ;`} src={home.productos.imagen.sourceUrl} alt='jaulas-hpde'/>
+          <img css={css`height:100%; min-height:550px;filter: brightness(86%) contrast(144%) hue-rotate(152deg) saturate(117%) sepia(20%) invert(9%) ;`} src={home.experiencia.imagen.sourceUrl} alt='jaulas-hpde'/>
         </Row>      
   
      
       </Row>
       <Spacer y={24}/>
+      <Row bk={{ margin:'0 auto', width:'100%' }} align='center' justify='center' wrap='wrap'> 
+        <Typography  capitalize variant='h2' fw='title' component='h3' align='center' bk={{ width:'100%' }}>Proyecto Apoyado por</Typography>
+        <Spacer y={5} /> 
+ 
+        <img src={home.corfoLogo.sourceUrl} css={css`display:block;width:300px;margin:40px; padding:0px 20px`} />
+ 
+
+      </Row>
+      <Spacer y={24} /> 
       
       <Modal state={stateModal} setState={setStateModal}>     
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/07l8DGh0ZpI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" height="715" src={home.video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </Modal>
 
     </LayoutScreen>      

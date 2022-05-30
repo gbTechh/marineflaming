@@ -22,6 +22,9 @@ const useContact = () => {
               numero
               mensaje
             }       
+            direccionChile
+            ruc
+            telefonoChile
           }
         }
       }

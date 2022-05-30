@@ -13,10 +13,12 @@ import Whatsapp from '../atoms/icons/Whatsapp';
 const Footer = () => {
 
   const logo = useLogo();
-  const {node:{redesSocialesCf:{email, direccion, whtasapp}}} = useContact();
+  const {node:{redesSocialesCf:{email, direccion, whtasapp,direccionChile, ruc, telefonoChile}}} = useContact();
 
   const theme = useTheme();
   const menu = useMenu();
+
+
 
   return (
     <>
@@ -44,41 +46,63 @@ const Footer = () => {
       </Container>
       <Container as='footer' bk={{flexDirection:'column', display:'flex',justifyContent:'flex-start',alignItems:'flex-start', background:'#171b2a', xmd:{flexDirection:'row', justifyContent:'flex-start'} }}>
         
-        <Row bk={{ width:'100%',display:'flex',padding:'0px 40px', margin:'0 auto', xmd:{width:'35%'} }}>
-          <Col span={12}>
-            <Row bk={{ flexDirection:'column', width:'100%' }} align='flex-start' justify='flex-start'>
-              <Col span={12}>
-                <Link to='/'><img css={css`width:150px; height:80px;`} src={logo} alt='marineflaming-logo'/></Link>
-              </Col>
-              <Spacer y={5}/>
-              <Typography variant='sm' fw='tiny' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px' }}>
-              <span>
-
-                    <Email size={'15'}  />  
-              </span>
-            
-                  {email} 
-              </Typography>
-              <Spacer y={5}/>
-              <Typography variant='sm' fw='tiny' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px' }}>
-                <span>
-                  <Pin size={'15'}  />  
-                </span> 
-                {direccion} 
-              </Typography>
-              <Spacer y={5}/>
-              <Typography variant='sm' fw='tiny' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px' }}>
-                <span>
-                  <Whatsapp size={'15'}  />  
-                </span> 
-                {whtasapp.numero} 
-              </Typography>
-              <Spacer y={15}/>
+        <Row bk={{ width:'100%',display:'flex',padding:'0px 10px', margin:'0 auto', xmd:{width:'75%',flexWrap:'nowrap'} }} wrap='wrap'> 
+          <Col span={12} bk={{ xmd:{width:'20%', height:'100%'} }}>
+            <Link to='/'><img css={css`width:150px; height:80px;`} src={logo} alt='marineflaming-logo'/></Link>
+          </Col>
+          <Col span={12} bk={{ xmd:{width:'80%'} }}>
+            <Row bk={{ flexDirection:'column', width:'100%', xmd:{flexDirection:'row'} }} align='flex-start' justify='flex-start'> 
+              <Col span={12} bk={{ flexDirection:'column', xmd:{width:'50%', height:'100%'}  }}>
+                <Spacer y={5}/>
+                <Typography variant='sm' fw='base' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px' }}>                
+                      {'MARINE FARMING COMPANY  SAC.4'} 
+                </Typography>
+                <Spacer y={5}/>
+                <Typography variant='sm' fw='base' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px' }}>                
+                      {`RUC: ${ruc}`} 
+                </Typography>
+                <Spacer y={5}/>
+                <Typography variant='sm' fw='base' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px' }}>                
+                      { `Chile: ${direccionChile}` } 
+                </Typography>
+                <Spacer y={5}/>
+                <Typography variant='sm' fw='base' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px' }}>                
+                      {`Peru: ${direccion}`} 
+                </Typography>
+                <Spacer y={5}/>    
+              </Col>          
+              <Col span={12} bk={{ flexDirection:'column', xmd:{width:'50%', height:'100%',alignItems:'center',paddingLeft:'20px',}  }}>
+                <Spacer y={5}/>
+                <Typography variant='sm' fw='base' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px' , xmd:{justifyContent:'center'}}}>
+                  <span>
+                        <Email size={'15'} fill={theme.palette.primary.main} />  
+                  </span>
+                
+                      {email} 
+                </Typography>              
+              
+                <Spacer y={5}/>
+                <Typography variant='sm' fw='base' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px', xmd:{justifyContent:'center'} }}>
+                  <span>
+                    <Whatsapp size={'15'}  fill={theme.palette.primary.main}/>  
+                  </span> 
+                  {`Peru: +${whtasapp.numero}`} 
+                </Typography>
+                <Spacer y={5}/>
+                <Typography variant='sm' fw='base' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px', xmd:{justifyContent:'center'} }}>
+                  <span>
+                    <Whatsapp size={'15'}  fill={theme.palette.primary.main}/>  
+                  </span> 
+                  {`Chile: +${telefonoChile}`} 
+                </Typography>
+                <Spacer y={15}/>
+              </Col>         
+              
             </Row>
           </Col>
          
         </Row>
-        <Row bk={{ width:'100%' , flexDirection:'column', display:'flex',padding:'0px 40px', margin:'0 auto', xmd:{width:'65%'} }}>
+        <Row bk={{ width:'100%' , flexDirection:'column', display:'flex',padding:'0px 10px', margin:'0 auto', xmd:{width:'25%'} }}>
           <Typography capitalize variant='h2' fw='title' component='h4' align='center' bk={{ color:'#fff' }}>{ 'Compañia' }</Typography>
           <Spacer y={5}/>
           {
@@ -86,7 +110,7 @@ const Footer = () => {
              
               <Col key={i} bk={{ alignItems:'flex-start' }}>
                 <Typography capitalize variant='base' fw='bquote' bk={{ width:'max-content', margin:'0px ', color:'#fff' }} css={css`&:hover{color:${theme.palette.primary.main}; transition:color 0.4s ease}`}>
-                  <Link to={e.url} >
+                  <Link to={e.path.slice(0, -1)} >
                     {e.label}
                   </Link>
                   <Spacer y={5}/>
