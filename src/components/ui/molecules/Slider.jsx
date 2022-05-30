@@ -17,7 +17,7 @@ const SliderHead = ({ linkWsp, children, sliderData, ...props}) => {
   const settings = {
     dots: true,
     infinite: true,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 4000,
     speed: 500,
     slidesToShow: 1,
