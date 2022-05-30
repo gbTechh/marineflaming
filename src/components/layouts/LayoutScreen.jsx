@@ -56,7 +56,7 @@ export const LayoutScreen = ({ children, title, descripcion }) => {
           <Col span={12} bk={{ flexDirection:'column',alignItems:'center', justifyContent:'flex-start', xmd:{width:'50%', flexDirection:'row'} }}>
             {email &&  <Typography variant='xs' bk={{ color:'#fff' }}>{email}</Typography>}
             <Spacer x={5}/>
-            {direccion &&  <Typography variant='xs' bk={{ color:'#fff' }}>{direccion}</Typography>}
+            
           </Col>
           <Col span={12} bk={{ alignItems:'center', justifyContent:'center', xmd:{width:'40%'} }}>
             <Row justy='center'  bk={{ width:'100%',flexDirection:'column',alignItems:'center', xmd:{flexDirection:'row',justifyContent:'flex-end'} }}>
