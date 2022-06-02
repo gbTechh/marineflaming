@@ -45,7 +45,11 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         url: "https://uatluhoy.lucusvirtual.es/?graphql=true",
-       
+        html: {
+          useGatsbyImage: true,
+          
+        },
+        useACF: true,
       },
     },
     { 
@@ -69,10 +73,8 @@ module.exports = {
         previewRequestConcurrency: 2, // currently set to 2
         perPage: 25,
       }
-    },
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
+    },   
+  
     // {
     //   resolve: `gatsby-plugin-google-fonts`,
     //   options: {
