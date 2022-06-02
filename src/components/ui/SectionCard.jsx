@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import React from 'react'
 import { Div, Row, Spacer, Typography, Card, Divider } from '../../../uixlibrary/components/exports/components'
 import { useTheme } from '../../../uixlibrary/hooks/useTheme'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const SectionCard = ({ children , badge, title, data, type}) => {
 
@@ -18,7 +19,7 @@ const SectionCard = ({ children , badge, title, data, type}) => {
             (e.node.tipoProducts?.nodes[0].slug === type) && (
               <Card key={i} pd={0} minw={'350px'} maxw={'350px'} borderRadius='n'bk={{ border:'0' }} shadow>
                 <Card.Header pd={0} bk={{ height:'250px' }}>
-                  <img css={css`height:100%`}src={e.node.featuredImage.node.sourceUrl} alt={e.node.title}/>
+                  <GatsbyImage css={css`height:100%`} image={getImage(e.node.featuredImage.node.localFile)} alt={e.node.title}/>
                 </Card.Header>
                 <Divider color='pink' gradient h='2px'/>
                 <Card.Body pd={2} bk={{ background:'#fff',  }}>

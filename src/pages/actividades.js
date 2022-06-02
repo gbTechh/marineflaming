@@ -14,7 +14,7 @@ import useTeam from '../hooks/useTeam'
 import useActividades from '../hooks/useActividades'
 import { Link } from 'gatsby'
 
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 
 
@@ -26,7 +26,7 @@ const ActividadesPage = ({location,...props }) =>{
   const path = location.pathname.replace('/','').replace('/','');
 
   return(
-    <LayoutScreen title='MarineFlaming | Actividades' descripcion={'Aprende más de lo que hacemos en Marine flaming'}>
+    <LayoutScreen title='MarineFarming | Actividades' descripcion={'Aprende más de lo que hacemos en Marine flaming'}>
       <HeaderText title='Actividades' path={path}/>   
 
       {
@@ -52,14 +52,14 @@ const ActividadesPage = ({location,...props }) =>{
                     }
                   `}>
                     <Div bk={{ border:'0', padding:'0', marginLeft:'30px', width:'100%', height:'400px'}} >
-                      <img src={e.featuredImage.node.sourceUrl} alt={e.title} css={css`min-height:100%`}/>
+                      <GatsbyImage image={getImage(e.featuredImage.node.localFile)} alt={e.title} css={css`min-height:100%`}/>
                     </Div>
                   </Div>
                 </Col>  
                 <Spacer y={12} bk={{ xmd:{display:'none'} }}/>
                 <Spacer x={12} bk={{ display:'none',xmd:{display:'block'} }}/>
                 <Col span={12} bk={{ xmd:{width:'50%'} }}>
-                  <Row wrap>
+                  <Row wrap='wrap'>
                     <Col span={12} bk={{ height:'auto' }}>
                       <Typography capitalize color='primary' variant='sm' component='h3' bk={{ width:'120px', height:'fit-content', background:`${theme.palette.primary.soft}`, padding:'6px', textAlign:'center', borderRadius:'999.99px' }}>{e.title}</Typography>
                     </Col>

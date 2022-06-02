@@ -3,14 +3,18 @@ import React from 'react'
 import { useChangeTheme } from "../context/provider";
 import { theme, darkTheme } from "../theme/utils";
 
+import "../../src/fonts";
+import fonts from '../../src/fonts/index.css';
 function GlobalStyles() {
 
     const { isDark } = useChangeTheme();
 
     return (
       <React.Fragment>
+       
         <Global
           styles={css`
+            ${fonts}
             * {
               margin: 0;
               padding: 0;

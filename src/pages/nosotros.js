@@ -11,19 +11,18 @@ import HeaderText from '../components/ui/HeaderText'
 import useHistory from '../hooks/useHistory'
 import useTeam from '../hooks/useTeam'
 
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 
 
 const NosotrosPage = ({location,...props }) =>{
   
   const theme = useTheme();
-  const products = useGetAllProducts();
-  const home = useHome();
+
   const history = useHistory();
   const years = history.sort((a,b) => (a.node.historiaCpt.year - b.node.historiaCpt.year))
   
-  
+  const [teamImages, setTeamImages] = useState()
   const [yearsArr, setYearsArr] = useState()
 
  
@@ -33,14 +32,19 @@ const NosotrosPage = ({location,...props }) =>{
  
   }
 
+  useEffect(() => {
+    setTeamImages(history)
+  
+    return () => {
+      
+    }
+  }, [])
+  
   
   useEffect(() => {
     const data = [];
     data.push(years[0])
-    setYearsArr(data)  
-
-
-   
+    setYearsArr(data)     
   }, [])
 
   const team = useTeam();
@@ -48,7 +52,7 @@ const NosotrosPage = ({location,...props }) =>{
   const path = location.pathname.replace('/','').replace('/','');
   
   return(
-    <LayoutScreen title='MarineFlaming | nosotros' descripcion={'Conoce más acerca de la gran compañia Marine Flaming'}>
+    <LayoutScreen title='MarineFarming | nosotros' descripcion={'Conoce más acerca de la gran compañia Marine Flaming'}>
       <HeaderText title='Nosotros' path={path}/>
       <Spacer y={24}/>
       
@@ -74,7 +78,7 @@ const NosotrosPage = ({location,...props }) =>{
         <Container bk={{ padding:'0' }}>         
           <Row wrap='wrap' bk={{ xmd:{flexWrap:'nowrap'} }} justify='center' align='center'>
             <Col span={12} bk={{ maxHeight:'400px',xmd:{width:'50%'} }}>
-              <img src={yearsArr && yearsArr[0].node.featuredImage.node.sourceUrl} alt='imagen-nosotros' />
+              {yearsArr && <GatsbyImage image={getImage(yearsArr[0].node.featuredImage.node.gatsbyImage)} alt='imagen-nosotros' />}
             </Col>
             <Spacer y={5} bk={{ xmd:{display:'none'} }} />
             <Col span={12} bk={{ flexWrap:'wrap', maxHeight:'400px',xmd:{width:'50%', padding:'20px'}  }}>      
@@ -117,7 +121,8 @@ const NosotrosPage = ({location,...props }) =>{
               (
                 <Card key={i} pd={0} minw={'300px'} maxw={'300px'} borderRadius='n'bk={{ }}>
                   <Card.Header pd={0} bk={{ height:'350px' }}>
-                    <img css={css`height:100%`}src={e.featuredImage.node.sourceUrl} alt={e.title}/>
+                  
+                  {teamImages && <GatsbyImage css={css`height:100%`} image={getImage(e.featuredImage.node.localFile)} alt={e.title}/>}
                   </Card.Header>
                   <Divider color='pink' gradient h='2px'/>
                   <Card.Body pd={1} bk={{ background:'#f2f6f7',  }}>

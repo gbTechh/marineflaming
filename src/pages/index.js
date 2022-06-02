@@ -11,7 +11,7 @@ import { useTheme } from '../../uixlibrary/hooks/useTheme'
 import Play from '../components/ui/atoms/icons/Play'
 import Modal from '../components/ui/molecules/Modal'
 import { Link } from 'gatsby'
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 
 
@@ -21,11 +21,17 @@ const IndexPage = ({...props }) =>{
   const products = useGetAllProducts();
   const home = useHome();
 
+  
+
   const [stateModal, setStateModal] = useState(false)
 
+  const imageNosotros = getImage(home.nosotros.imagen)
+  const imagenExperiencia = getImage(home.experiencia.imagen);
+  const imagenCorfo = getImage(home.corfoLogo);
+  console.log(imagenCorfo)
 
   return(
-    <LayoutScreen title='MarineFlaming | Home' descripcion={'Encuentra todos nuestros productos como jaulas para cultivo de peces en lagos, lagunas y ríos'}>
+    <LayoutScreen title='MarineFarming | Home' descripcion={'Encuentra todos nuestros productos como jaulas para cultivo de peces en lagos, lagunas y ríos'}>
       <Header />
 
      
@@ -45,7 +51,8 @@ const IndexPage = ({...props }) =>{
           </Row>
         </Container>
         <Row bk={{ display:'none', width:'50%',minHeight:'550px', md:{display:'flex'} }}>
-          <img css={css`height:100%; min-height:550px`} src={home.nosotros.imagen.sourceUrl}/>
+          <GatsbyImage image={imageNosotros} alt='Marine Farming Image' css={css`height:100%; min-height:550px`}/>
+          {/* {<img css={css`height:100%; min-height:550px`} src={home.nosotros.imagen.sourceUrl}/>} */}
         </Row>
         <Div onClick={() => setStateModal(true)} css={css`
         cursor:pointer;
@@ -89,7 +96,8 @@ const IndexPage = ({...props }) =>{
           </Row>
         </Container>
         <Row bk={{ background:'#fff',display:'none', width:'50%',minHeight:'550px', md:{display:'flex'} }}>
-          <img css={css`height:100%; min-height:550px;filter: brightness(86%) contrast(144%) hue-rotate(152deg) saturate(117%) sepia(20%) invert(9%) ;`} src={home.experiencia.imagen.sourceUrl} alt='jaulas-hpde'/>
+          {/* <img css={css`height:100%; min-height:550px;filter: brightness(86%) contrast(144%) hue-rotate(152deg) saturate(117%) sepia(20%) invert(9%) ;`} src={home.experiencia.imagen.sourceUrl} alt='jaulas-hpde' /> */}
+          <GatsbyImage image={imagenExperiencia} alt='jaulas-hpde' css={css`height:100%; min-height:550px;filter: brightness(86%) contrast(144%) hue-rotate(152deg) saturate(117%) sepia(20%) invert(9%) ;`}/>
         </Row>      
   
      
@@ -98,8 +106,8 @@ const IndexPage = ({...props }) =>{
       <Row bk={{ margin:'0 auto', width:'100%' }} align='center' justify='center' wrap='wrap'> 
         <Typography  capitalize variant='h2' fw='title' component='h3' align='center' bk={{ width:'100%' }}>Proyecto Apoyado por</Typography>
         <Spacer y={5} /> 
- 
-        <img src={home.corfoLogo.sourceUrl} css={css`display:block;width:300px;margin:40px; padding:0px 20px`} />
+        <GatsbyImage image={imagenCorfo} alt='Logo corfo' css={css`margin:40px; padding:0px 20px`}/>
+  
  
 
       </Row>

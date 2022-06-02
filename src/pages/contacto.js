@@ -37,7 +37,7 @@ const ContactoPage = ({location,...props }) =>{
 
 
   return(
-    <LayoutScreen title='MarineFlaming | Contacto' descripcion={`Contáctate con nosotros mediante nuestro email: ${email} o numero telefónico ${whtasapp.numero}`}>
+    <LayoutScreen title='MarineFarming | Contacto' descripcion={`Contáctate con nosotros mediante nuestro email: ${email} o numero telefónico ${whtasapp.numero}`}>
       <HeaderText title='Contacto' path={path}/>
       <Spacer y={24}/>
       
@@ -65,7 +65,7 @@ const ContactoPage = ({location,...props }) =>{
             
             <Col span={12}>
               <Div bk={{ padding:'20px', background:'#fff' }}> 
-                <Row wrap>
+                <Row wrap='wrap'>
                   <Col span={12}  bk={{ justifyContent:'center' }}>
                     <img src={direccionImg} css={css`width:80px; height:80px; object-fit:contain`} alt='direccion'  />
                   </Col>
@@ -83,7 +83,7 @@ const ContactoPage = ({location,...props }) =>{
 
             <Col span={12}>
               <Div bk={{ padding:'20px' , background:'#fff'}}> 
-                <Row wrap>
+                <Row wrap='wrap'>
                   <Col span={12}  bk={{ justifyContent:'center' }}>
                     <img src={phoneImg} css={css`width:80px; height:80px; object-fit:contain`} alt='telefono'  />
                   </Col>

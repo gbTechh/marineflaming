@@ -8,7 +8,11 @@ const useActividades = () => {
       nodes{
         featuredImage{
           node{
-            sourceUrl
+            localFile{
+							childImageSharp{
+								gatsbyImageData
+              }
+            }
           }
         }
         title

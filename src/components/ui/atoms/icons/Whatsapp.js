@@ -9,8 +9,8 @@ function Whatsapp(size, width, fill,height, props) {
       enableBackground: "new 0 0 24 24",
     }}
     xmlSpace="preserve"
-    width={size.size || width || 17}
-    height={ size.size || height || 17} 
+    width={ 30}
+    height={ 30} 
     {...props}
   >
     <path

@@ -6,7 +6,7 @@ import Provider from './uixlibrary/context/provider';
 import Uix from './uixlibrary/Uix.jsx';
 
 export const wrapRootElement = ({ element }) => {
-  console.log({element})
+
   return (
     <ApolloProvider client={ client }>
       <Provider>

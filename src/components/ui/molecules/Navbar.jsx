@@ -6,7 +6,7 @@ import { useChangeTheme } from '../../../../uixlibrary/context/provider';
 import { Link } from 'gatsby';
 import Xsmall from '../atoms/icons/Xsmall';
 import { useTheme } from '../../../../uixlibrary/hooks/useTheme';
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const Navbar = ({ logo, menu }) => {
 
@@ -33,8 +33,8 @@ export const Navbar = ({ logo, menu }) => {
         <Col span={6}>
           <Row justify={'center'} align='center'>
             <Link to='/'>
-              <img             
-                src={logo}
+              <GatsbyImage             
+                image={logo}
                 css={css`
                 width:180px;
                 height:70px;
@@ -82,7 +82,7 @@ export const Navbar = ({ logo, menu }) => {
     {
       menu.menuItems.nodes.map((e,i) => (
       
-        <Col key={e.slug}  bk={{ alignItems:'center',justifyContent:'center', height:'auto' }}>
+        <Col key={e.path}  bk={{ alignItems:'center',justifyContent:'center', height:'auto' }}>
           <Typography capitalize variant='h3' fw='strong' bk={{ width:'max-content', margin:'0px 10px' }} css={css`&:hover{color:${theme.palette.primary.main}}`} >
             <Link to={e.path.slice(0, -1)} onClick={closeMenu} >
               {e.label}

@@ -8,29 +8,30 @@ const useHome = () => {
          home{
            nosotros{
              descripcion
+            
              imagen{
-               sourceUrl
-             }
+               gatsbyImage(height: 550, width:800)
+            }
              titulo  
            }
            historia{
              descripcion
-             imagen{
-               sourceUrl
-             }
+              imagen{
+               gatsbyImage(height: 550, width:800)
+            }
              titulo
            }
            experiencia{
              descripcion
-             imagen{
-               sourceUrl
-             }
+              imagen{
+							gatsbyImage(height: 550, width:800)
+            }
              titulo
            }
            video
            corfoLogo{
-             sourceUrl
-           }
+            gatsbyImage(height: 89, width:300)
+            }
          }
        }
    }

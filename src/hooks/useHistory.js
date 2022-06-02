@@ -11,7 +11,7 @@ const useHistory = () => {
           slug
           featuredImage{
             node{
-              sourceUrl
+              gatsbyImage(width:590,height:390)
             }
           }
           historiaCpt{

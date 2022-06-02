@@ -11,7 +11,7 @@ import HeaderText from '../components/ui/HeaderText'
 
 import { Link } from 'gatsby'
 
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 
 
@@ -29,7 +29,7 @@ const ProductosPage = ({location,...props }) =>{
   const path = location.pathname.replace('/','').replace('/','');
 
   return(
-    <LayoutScreen title='MarineFlaming | Productos' descripcion={'Encuentra todos nuestros productos como jaulas para cultivo de peces en lagos, lagunas y ríos'}>
+    <LayoutScreen title='MarineFarming | Productos' descripcion={'Encuentra todos nuestros productos como jaulas para cultivo de peces en lagos, lagunas y ríos'}>
       <HeaderText title='Productos y Servicios' path={path}/>   
       <Row bk={{  }}>
         <Col span={12} bk={{  position:'relative'}}>
@@ -72,7 +72,7 @@ const ProductosPage = ({location,...props }) =>{
                 }
               `}>
                 <Div bk={{ border:'0', padding:'0', marginLeft:'30px', width:'100%', height:'400px'}} >
-                  <img src={productDestacado.node.featuredImage.node.sourceUrl} alt={productDestacado.node.title} css={css`min-height:100%`}/>
+                  <GatsbyImage image={getImage(productDestacado.node.featuredImage.node.localFile)} alt={productDestacado.node.title} css={css`min-height:100%`}/>
                 </Div>
               </Div>
             </Col>  
@@ -120,7 +120,7 @@ const ProductosPage = ({location,...props }) =>{
                   <Div bk={{ position:'relative', border:'0', padding:'0', background:'none' }} 
                  >
                     <Div bk={{ border:'0', padding:'0', width:'100%', height:'400px'}} >
-                      <img src={e.node.featuredImage.node.sourceUrl} alt={e.node.title} css={css`min-height:100%`}/>
+                      <GatsbyImage image={getImage(e.node.featuredImage.node.localFile)} alt={e.node.title} css={css`min-height:100%`}/>
                     </Div>
                   </Div>
                 </Col>  

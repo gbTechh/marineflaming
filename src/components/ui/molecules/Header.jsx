@@ -28,7 +28,7 @@ const Header = ({ children}) => {
       </Div>
       <Div bk={{ zIndex:'10',display:'block', position:'fixed', bottom:'40px', right:'25px', width:'55px', height:'55px', borderRadius:'50%', background:' linear-gradient(45deg, rgba(16,184,40,1) 0%, rgba(138,255,146,1) 100%)', border:'0', padding:'0', display:'grid', placeContent:'center' , paddingBottom:'1.2px', paddingLeft:'1px'}}>
         <Link to={whatsappLink()}>
-          <Whatsapp size={35} fill={'#fff'}/>
+          <Whatsapp fill={'#fff'}/>
         </Link>
       </Div>
     </Container>

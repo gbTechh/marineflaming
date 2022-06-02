@@ -5,20 +5,25 @@ const useGalery = () => {
   const allGalery = useStaticQuery(graphql`
   {
     allWpGaleriaCpt{
-     edges{
-       node{
-         title
-         galeriacf{
-           titulo
-           galeria{     
-             id     
-             sourceUrl
-           }
+      edges{
+        node{
+          title
+          galeriacf{
+            titulo
+            galeria{
+              id
+              sourceUrl
+              localFile{
+						  	childImageSharp{
+								  gatsbyImageData
+              }
+            }
+          }
          }
        }
      }
    }
-   }
+  }
    `
   );    
 

@@ -9,7 +9,12 @@ const useTeam = () => {
         title
         featuredImage{
           node{
-            sourceUrl
+           sourceUrl
+            localFile{
+              childImageSharp{
+								gatsbyImageData(width: 300, height:350,quality:100)
+              }
+            }
           }
         }
         teamCf{
@@ -19,7 +24,6 @@ const useTeam = () => {
       }
     }
   }
-  
    `
   );    
 

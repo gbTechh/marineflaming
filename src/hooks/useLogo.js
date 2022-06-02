@@ -9,16 +9,19 @@ const useLogo = () => {
         logoCf{
           imagen{
 						sourceUrl
+            gatsbyImage(width:180, height:70,quality:100)
           }
         }
       }
     }
   }
+
+
   
    `
   );    
 
-  const logoSource = logo.allWpPage.nodes.filter(e => e.logoCf.imagen !== null)[0].logoCf.imagen.sourceUrl
+  const logoSource = logo.allWpPage.nodes.filter(e => e.logoCf.imagen !== null)[0].logoCf.imagen.gatsbyImage
 
 
   return logoSource;

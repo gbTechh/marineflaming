@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix:'/marineflaming',
+  pathPrefix:'/marinefarming',
   siteMetadata: {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
@@ -45,6 +45,7 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         url: "https://uatluhoy.lucusvirtual.es/?graphql=true",
+       
       },
     },
     { 
@@ -69,18 +70,21 @@ module.exports = {
         perPage: 25,
       }
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `noto serif\:400,400i,700,700i`,
-          `poppins\:300,400,500,600,700`,
-          `open sans\:300,400,500,600,700`,
-          `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
-        ],
-        display: 'swap'
-      }
-    }
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    // {
+    //   resolve: `gatsby-plugin-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       `noto serif\:400,400i,700,700i`,
+    //       `poppins\:300,400,500,600,700`,
+    //       `open sans\:300,400,500,600,700`,
+    //       `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+    //     ],
+    //     display: 'swap'
+    //   }
+    // }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

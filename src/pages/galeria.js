@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import React, { useState } from 'react'
-import {  Row, Spacer, Typography, Container } from '../../uixlibrary/components/exports/components'
+import {  Row, Spacer, Typography, Container, Div } from '../../uixlibrary/components/exports/components'
 
 import { LayoutScreen } from "../components/layouts/LayoutScreen"
 
@@ -9,7 +9,7 @@ import HeaderText from '../components/ui/HeaderText'
 
 import useGalery from '../hooks/useGalery'
 import Modal from '../components/ui/molecules/Modal'
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 
 const GaleriaPage = ({location,...props }) =>{
@@ -21,13 +21,11 @@ const GaleriaPage = ({location,...props }) =>{
   const path = location.pathname.replace('/','').replace('/','');
 
   
-  const galery = useGalery();
-
-  
+  const galery = useGalery();  
 
   const handleGalery = (id) => {
     
-
+    console.log('id',id)
     const obj = galery.node.galeriacf.galeria.filter(e => e.id === id);
     setGaleryState(obj[0].sourceUrl)
     setStateModal(true);
@@ -35,9 +33,11 @@ const GaleriaPage = ({location,...props }) =>{
     
   }
 
+ 
+
 
   return(
-    <LayoutScreen title='MarineFlaming | Galería' descripcion={'Mira nuestra galería de procesos de fabricación de los productos'}>
+    <LayoutScreen title='MarineFarming | Galería' descripcion={'Mira nuestra galería de procesos de fabricación de los productos'}>
       <HeaderText title='Galería' path={path}/>
       <Spacer y={24}/>
       
@@ -46,8 +46,12 @@ const GaleriaPage = ({location,...props }) =>{
         <Spacer y={24}/>
         <Row wrap='wrap' gap={5} alig='center' justify='center'>
         {
-          galery && galery.node.galeriacf.galeria.map(e => (
-            <img onClick={() => handleGalery(e.id)} key={e.id} src={e.sourceUrl} css={css`width:300px; transform:scale(1);transition:transform 0.3s ease; &:hover{transform:scale(1.1)}`} alt={'fabricacion-de-productos'}/>
+          galery && galery.node.galeriacf.galeria.map((e,i) => (
+            
+            <Div onClick={() => handleGalery(e.id)} css={css`padding:0; background:none;border:0;width:300px; height:auto;transform:scale(1);transition:transform 0.3s ease; &:hover{transform:scale(1.1)}`}>
+              <GatsbyImage  key={e.id} image={getImage(e.localFile)} css={css`width:100%; height:100%;`} alt={'fabricacion-de-productos'}/>
+            
+            </Div>
           ))
         }
       </Row>

@@ -9,10 +9,14 @@ import useMenu from '../../../hooks/useMenu';
 import Email from '../atoms/icons/Email';
 import Pin from '../atoms/icons/Pin';
 import Whatsapp from '../atoms/icons/Whatsapp';
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 
 const Footer = () => {
 
   const logo = useLogo();
+
+  console.log({logo});
   const {node:{redesSocialesCf:{email, direccion, whtasapp,direccionChile, ruc, telefonoChile}}} = useContact();
 
   const theme = useTheme();
@@ -47,20 +51,16 @@ const Footer = () => {
       <Container as='footer' bk={{flexDirection:'column', display:'flex',justifyContent:'flex-start',alignItems:'flex-start', background:'#171b2a', xmd:{flexDirection:'row', justifyContent:'flex-start'} }}>
         
         <Row bk={{ width:'100%',display:'flex',padding:'0px 10px', margin:'0 auto', xmd:{width:'75%',flexWrap:'nowrap'} }} wrap='wrap'> 
-          <Col span={12} bk={{ xmd:{width:'20%', height:'100%'} }}>
-            <Link to='/'><img css={css`width:150px; height:80px;`} src={logo} alt='marineflaming-logo'/></Link>
+          <Col span={12} bk={{ xmd:{width:'25%', height:'100%'} }}>
+            <Link to='/'><GatsbyImage css={css`width:180px; height:80px;`} image={getImage(logo)} alt='marineflaming-logo'/></Link>
           </Col>
-          <Col span={12} bk={{ xmd:{width:'80%'} }}>
+          <Col span={12} bk={{ xmd:{width:'75%'} }}>
             <Row bk={{ flexDirection:'column', width:'100%', xmd:{flexDirection:'row'} }} align='flex-start' justify='flex-start'> 
               <Col span={12} bk={{ flexDirection:'column', xmd:{width:'50%', height:'100%'}  }}>
                 <Spacer y={5}/>
                 <Typography variant='sm' fw='base' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px' }}>                
-                      {'MARINE FARMING COMPANY  SAC.4'} 
-                </Typography>
-                <Spacer y={5}/>
-                <Typography variant='sm' fw='base' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px' }}>                
-                      {`RUC: ${ruc}`} 
-                </Typography>
+                      {'MARINE FARMING COMPANY'} 
+                </Typography>                
                 <Spacer y={5}/>
                 <Typography variant='sm' fw='base' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px' }}>                
                       { `Chile: ${direccionChile}` } 
@@ -74,8 +74,8 @@ const Footer = () => {
               <Col span={12} bk={{ flexDirection:'column', xmd:{width:'50%', height:'100%',alignItems:'center',paddingLeft:'20px',}  }}>
                 <Spacer y={5}/>
                 <Typography variant='sm' fw='base' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px' , xmd:{justifyContent:'center'}}}>
-                  <span>
-                        <Email size={'15'} fill={theme.palette.primary.main} />  
+                  <span css={css`& > svg { width:17px; height:17px;}`}>
+                        <Email fill={theme.palette.primary.main} />  
                   </span>
                 
                       {email} 
@@ -83,15 +83,15 @@ const Footer = () => {
               
                 <Spacer y={5}/>
                 <Typography variant='sm' fw='base' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px', xmd:{justifyContent:'center'} }}>
-                  <span>
-                    <Whatsapp size={'15'}  fill={theme.palette.primary.main}/>  
+                  <span css={css`& > svg { width:17px; height:17px;}`}>
+                    <Whatsapp  fill={theme.palette.primary.main}/>  
                   </span> 
                   {`Peru: +${whtasapp.numero}`} 
                 </Typography>
                 <Spacer y={5}/>
                 <Typography variant='sm' fw='base' bk={{ display:'flex' , width:'100%', justifyContent:'flex-start', color:'#fff', alignItems:'center', gap:'4px', xmd:{justifyContent:'center'} }}>
-                  <span>
-                    <Whatsapp size={'15'}  fill={theme.palette.primary.main}/>  
+                  <span css={css`& > svg { width:17px; height:17px;}`}>
+                    <Whatsapp  fill={theme.palette.primary.main}/>  
                   </span> 
                   {`Chile: +${telefonoChile}`} 
                 </Typography>

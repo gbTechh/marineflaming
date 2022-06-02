@@ -12,7 +12,11 @@ const useGetAllProducts = () => {
           slug
           featuredImage{
             node{
-              sourceUrl
+             localFile{
+								childImageSharp{
+									gatsbyImageData(width:600,height:400, quality:70)
+                }
+              }
             }
           }
           productoDestacadoCf{
@@ -20,7 +24,7 @@ const useGetAllProducts = () => {
             descripcionCortaProducto
             descripcion
             imagenDestacada{
-							sourceUrl
+						  sourceUrl
             }
           }
           tipoProducts{	
