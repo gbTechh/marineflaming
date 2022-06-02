@@ -63,9 +63,7 @@ module.exports = {
     },
     {
       resolve: "gatsby-plugin-gravity-forms",
-      options: {
-        // This URL should be the same as you use for your
-        // gatsby-source-wordpress options.
+      options: {       
         url: "https://uatluhoy.lucusvirtual.es/?graphql=true",
       },
       schema: {
